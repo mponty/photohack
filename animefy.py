@@ -17,7 +17,7 @@ def main(input_dir: Path, output_dir: Path, stylegan_dir: Path, twingan_dir: Pat
             '--output_size', '256',
             str(input_dir),
             str(aligned_images_dir),
-        ], cwd=stylegan_dir)
+        ], cwd=str(stylegan_dir))
 
         subprocess.check_call([
             'python',
@@ -28,7 +28,7 @@ def main(input_dir: Path, output_dir: Path, stylegan_dir: Path, twingan_dir: Pat
             '--output_tensor_name', 'custom_generated_t_style_source:0',
             '--input_image_path', str(aligned_images_dir),
             '--output_image_path', str(output_dir),
-        ], cwd=twingan_dir)
+        ], cwd=str(twingan_dir))
 
 
 if __name__ == '__main__':
