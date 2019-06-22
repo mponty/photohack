@@ -12,7 +12,7 @@ def main(input_dir: Path, output_dir: Path, stylegan_dir: Path, twingan_dir: Pat
         aligned_images_dir = work_dir / 'aligned'
 
         subprocess.check_call([
-            'python',
+            'python3',
             'align_images.py',
             '--output_size', '256',
             str(input_dir),
@@ -20,7 +20,7 @@ def main(input_dir: Path, output_dir: Path, stylegan_dir: Path, twingan_dir: Pat
         ], cwd=str(stylegan_dir))
 
         subprocess.check_call([
-            'python',
+            'python3',
             'inference/image_translation_infer.py',
             '--model_path', str(twingan_model_dir),
             '--image_hw', '256',
